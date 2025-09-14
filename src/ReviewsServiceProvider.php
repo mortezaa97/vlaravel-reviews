@@ -14,7 +14,7 @@ class ReviewsServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         // Load migrations
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
@@ -38,7 +38,7 @@ class ReviewsServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'reviews');
         $this->app->singleton('reviews', function () {

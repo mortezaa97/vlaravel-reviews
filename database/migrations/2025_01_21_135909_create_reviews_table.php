@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->ulidMorphs('model');
+            $table->morphs('model');
 
             $table->longText('desc');
             $table->smallInteger('rate')->default(4);
