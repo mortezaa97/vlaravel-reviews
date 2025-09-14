@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mortezaa97\Reviews;
 
-use Filament\Panel;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Mortezaa97\Reviews\Filament\Resources\Reviews\ReviewResource;
@@ -41,12 +40,8 @@ class ReviewsServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register(Panel $panel): void
+    public function register(): void
     {
-        $panel
-            ->resources(
-                config('filament-spatie-roles-permissions.resources')
-            );
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'reviews');
         $this->app->singleton('reviews', function () {
             return new Reviews;
