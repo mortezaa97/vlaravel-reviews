@@ -17,7 +17,10 @@ composer require mortezaa97/reviews
 ## Usage
 
 ```php
-// Usage description here
+ php artisan vendor:publish --tag=reviews-seeders
+```
+```php
+ReviewsTableSeeder::class,
 ```
 
 ### Testing
