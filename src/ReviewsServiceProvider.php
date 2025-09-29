@@ -6,10 +6,8 @@ namespace Mortezaa97\Reviews;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Mortezaa97\Reviews\Filament\Resources\Reviews\ReviewResource;
 use Mortezaa97\Reviews\Models\Review;
 use Mortezaa97\Reviews\Policies\ReviewPolicy;
-use Filament\Facades\Filament;
 
 class ReviewsServiceProvider extends ServiceProvider
 {
@@ -34,6 +32,10 @@ class ReviewsServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../database/migrations' => database_path('migrations'),
             ], 'migrations');
+
+            $this->publishes([
+                __DIR__ . '/../database/seeders' => database_path('seeders'),
+            ], 'seeders');
         }
     }
 
