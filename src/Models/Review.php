@@ -24,6 +24,9 @@ class Review extends Model
     protected $appends = [];
 
     protected $with = [];
+    protected $casts = [
+        'gallery' => 'json',
+    ];
 
     protected static function boot()
     {
