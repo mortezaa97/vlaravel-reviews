@@ -21,7 +21,7 @@ class ReviewResource extends JsonResource
             'id' => $this->id,
             'desc' => $this->desc,
             'rate' => $this->rate,
-            'reviewable' => $this->whenLoaded('reviewable',new ReviewableResource($this->reviewable)),
+//            'reviewable' => $this->whenLoaded('reviewable',new ReviewableResource($this->reviewable)),
             'is_featured' => $this->is_featured,
             'negative_points' => $this->negative_points,
             'positive_points' => $this->positive_points,
