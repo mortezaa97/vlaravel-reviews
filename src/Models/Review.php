@@ -24,6 +24,7 @@ class Review extends Model
     protected $appends = [];
 
     protected $with = [];
+
     protected $casts = [
         'gallery' => 'json',
     ];
@@ -51,6 +52,6 @@ class Review extends Model
 
     public function reviewable(): MorphTo
     {
-        return $this->morphTo('model');
+        return $this->morphTo('reviewable', 'model_type', 'model_id');
     }
 }
