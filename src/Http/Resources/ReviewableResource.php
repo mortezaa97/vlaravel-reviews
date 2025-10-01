@@ -20,6 +20,8 @@ class ReviewableResource extends JsonResource
         return [
             'id' => $this->when($this->id !== null, fn () => $this->id),
             'title' => $this->when($this->title !== null, fn () => $this->title),
+            'slug' => $this->when($this->slug !== null, fn () => $this->slug),
+            'code' => $this->when($this->code !== null, fn () => $this->code),
             'name' => $this->when($this->name !== null, fn () => $this->name),
             'price' => $this->when($this->price !== null, fn () => $this->price),
             'rate' => $this->when($this->rate !== null, fn () => $this->rate),

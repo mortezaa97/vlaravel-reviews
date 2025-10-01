@@ -30,7 +30,10 @@ class ReviewPolicy
      */
     public function create(?User $user): bool
     {
-        return true;
+        if (config('reviews.auth'))
+            return $user->hasRole('admin');
+        else
+            return true;
     }
 
     /**

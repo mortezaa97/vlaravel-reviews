@@ -48,7 +48,9 @@ class ReviewController extends Controller
         } catch (\InvalidArgumentException $e) {
             return response()->json(['error' => $e->getMessage()], 422);
         }
-        $data['created_by'] = Auth::user()->id;
+        if (config('reviews.auth')) {
+            $data['created_by'] = Auth::user()->id;
+        }
         $review = $item->create($data);
 
         return new ReviewResource($review);
