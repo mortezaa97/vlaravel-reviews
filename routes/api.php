@@ -8,5 +8,5 @@ Route::prefix('api/reviews')->middleware('api')->group(function () {
     Route::get('/', [ReviewController::class, 'index'])->name('reviews.index');
     Route::get('/{review}', [ReviewController::class, 'show'])->name('reviews.show');
     Route::match(['put', 'patch'], '/{review}', [ReviewController::class, 'update'])->middleware('auth:api')->name('reviews.update');
-    Route::post('/', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::post('/', [ReviewController::class, 'store'])->middleware('auth:api')->name('reviews.store');
 });

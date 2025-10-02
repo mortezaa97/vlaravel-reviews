@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use InvalidArgumentException;
 use Mortezaa97\Reviews\Http\Resources\ReviewResource;
 use Mortezaa97\Reviews\Models\Review;
 
@@ -29,6 +30,7 @@ class ReviewController extends Controller
         }
 
         $items = $items->with('reviewable');
+
         return $request->noPaginate ? ReviewResource::collection($items->get()) : ReviewResource::collection($items->paginate())->response()->getData(true);
     }
 
@@ -39,13 +41,20 @@ class ReviewController extends Controller
         $data = $request->all();
         $validated = $request->validate([
             'type' => ['required', 'string'],  // Validate short names
-            'model_id' => 'required|integer',
             'desc' => ['required'],
+            'rate' => 'sometimes',
+            'is_featured' => 'sometimes',
+            'negative_points' => 'sometimes',
+            'positive_points' => 'sometimes',
+            'name' => 'sometimes',
+            'cellphone' => 'sometimes',
+            'email' => 'sometimes',
+            'parent_id' => 'sometimes|exists:reviews,id',
         ]);
 
         try {
             $data['model_type'] = ModelType::fromShort($validated['type']);  // Maps 'user' to ModelType::USER (full class)
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             return response()->json(['error' => $e->getMessage()], 422);
         }
         if (config('reviews.auth')) {
