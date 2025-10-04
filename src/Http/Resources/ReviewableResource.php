@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mortezaa97\Reviews\Http\Resources;
 
-use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

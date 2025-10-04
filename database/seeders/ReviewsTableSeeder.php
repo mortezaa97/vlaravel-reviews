@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-
 use App\Enums\Status;
 use App\Models\User;
 use Faker\Factory as Faker;

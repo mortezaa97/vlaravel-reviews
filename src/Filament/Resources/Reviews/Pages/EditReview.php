@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Mortezaa97\Reviews\Filament\Resources\Reviews\Pages;
 
-use Mortezaa97\Reviews\Filament\Resources\Reviews\ReviewResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
+use Mortezaa97\Reviews\Filament\Resources\Reviews\ReviewResource;
 
 class EditReview extends EditRecord
 {

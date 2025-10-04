@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Mortezaa97\Reviews\Filament\Resources\Reviews;
 
-use Mortezaa97\Reviews\Filament\Resources\Reviews\Pages\CreateReview;
-use Mortezaa97\Reviews\Filament\Resources\Reviews\Pages\EditReview;
-use Mortezaa97\Reviews\Filament\Resources\Reviews\Pages\ListReviews;
-use Mortezaa97\Reviews\Filament\Resources\Reviews\Schemas\ReviewForm;
-use Mortezaa97\Reviews\Filament\Resources\Reviews\Tables\ReviewsTable;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mortezaa97\Reviews\Filament\Resources\Reviews\Pages\CreateReview;
+use Mortezaa97\Reviews\Filament\Resources\Reviews\Pages\EditReview;
+use Mortezaa97\Reviews\Filament\Resources\Reviews\Pages\ListReviews;
+use Mortezaa97\Reviews\Filament\Resources\Reviews\Schemas\ReviewForm;
+use Mortezaa97\Reviews\Filament\Resources\Reviews\Tables\ReviewsTable;
 use Mortezaa97\Reviews\Models\Review;
 use UnitEnum;
 
