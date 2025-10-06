@@ -21,12 +21,19 @@ class ReviewController extends Controller
     {
         $items = new Review;
 
-        if ($request->conditions) {
-            $items = $items->where(json_decode($request->conditions, true));
-        }
+        $validated = $request->validate([
+            'type' => ['required', 'string'],
+            'id' => ['required_without:slug'],
+            'slug' => ['required_without:id'],
+        ]);
 
-        if ($request->with) {
-            $items = $items->with($request->with);
+        $model_type = ModelType::fromShort($validated['type']);
+        if (isset($validated['slug'])) {
+            $className = $model_type->value;
+            $item = $className::where('slug', $validated['slug'])->firstOrFail();
+            $items->where('model_id', $item->id);
+        } else {
+            $items->where('model_id', $validated['id']);
         }
 
         $items = $items->with('reviewable');
