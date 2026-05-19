@@ -27,7 +27,7 @@ class ReviewResource extends Resource
 
     protected static ?string $pluralModelLabel = 'نظرات';
 
-    protected static string|null|UnitEnum $navigationGroup = 'بلاگ';
+    protected static string|null|UnitEnum $navigationGroup = 'مدیریت محتوا';
 
     public static function form(Schema $schema): Schema
     {
